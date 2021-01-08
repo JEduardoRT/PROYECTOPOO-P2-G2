@@ -18,7 +18,7 @@
             <Font size="48.0" />
          </font>
       </TextField>
-        <Button text="OK">
+        <Button onAction="#ok" text="OK">
          <font>
             <Font size="48.0" />
          </font></Button>
