@@ -22,7 +22,7 @@
          <font>
             <Font size="48.0" />
          </font></Button>
-      <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" text="Cancelar">
+      <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#regresarMenu" text="Cancelar">
          <font>
             <Font size="48.0" />
          </font>
