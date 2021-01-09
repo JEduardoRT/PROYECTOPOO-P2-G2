@@ -1,27 +1,28 @@
 package com.jandryespol.loteria;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 
-public class ConfiguracionController implements Initializable {
+public class ConfiguracionController{
     
     @FXML Button btnSalir;
-    @FXML ComboBox cbVisibilidad;
+    @FXML Button btnVisibilidad;
     @FXML ComboBox cbCantidad;
     
     @FXML
     public void regresarMenu() throws IOException{
         App.setRoot("inicio");
     }
-    
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+    @FXML
+    public  void cambiarVisibilidad(){
+        if(btnVisibilidad.getText().equals("Visible")){
+            btnVisibilidad.setText("No visible");
+            
+        }
+        else{
+            btnVisibilidad.setText("Visible");
+}        }
     
 }

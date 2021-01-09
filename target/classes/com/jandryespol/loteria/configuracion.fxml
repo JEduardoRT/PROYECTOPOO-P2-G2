@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -30,6 +31,19 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <ComboBox fx:id="cbVisibilidad" prefWidth="150.0" promptText="Elegir si o no" translateX="50.0" translateY="50.0" visibleRowCount="2" GridPane.rowIndex="1" />
+      <Button fx:id="btnVisibilidad" mnemonicParsing="false" onAction="#cambiarVisibilidad" prefHeight="31.0" prefWidth="108.0" text="Visible" translateX="400.0" translateY="50.0" GridPane.rowIndex="1" />
+      <Label text="Dale click al botón para cambiar la visibilidad" translateX="20.0" translateY="50.0" GridPane.rowIndex="1">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label text="(El texto hace referencia a como está configurado el juego)" translateX="20.0" translateY="65.0" GridPane.rowIndex="1">
+         <font>
+            <Font size="10.0" />
+         </font>
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+      </Label>
    </children>
 </GridPane>
