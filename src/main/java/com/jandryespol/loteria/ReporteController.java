@@ -1,5 +1,6 @@
 package com.jandryespol.loteria;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -13,8 +14,8 @@ public class ReporteController implements Initializable {
     @FXML TableView tablaReporte;
     
     @FXML
-    public void salir(){
-        
+    public void regresarMenu() throws IOException{
+        App.setRoot("inicio");
     }
     
     @Override
