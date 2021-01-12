@@ -31,7 +31,7 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Button id="btnSalir" fx:id="btnSalir" alignment="BOTTOM_LEFT" cacheShape="false" centerShape="false" mnemonicParsing="false" onAction="#regresarMenu" prefHeight="28.0" prefWidth="60.0" scaleShape="false" text="Regresar" textAlignment="CENTER" translateX="20.0" translateY="75.0" GridPane.rowIndex="2">
+      <Button id="btnSalir" fx:id="btnSalir" alignment="BOTTOM_LEFT" cacheShape="false" centerShape="false" contentDisplay="CENTER" mnemonicParsing="false" onAction="#regresarMenu" prefHeight="39.0" prefWidth="95.0" scaleShape="false" text="Regresar" textAlignment="CENTER" translateX="20.0" translateY="75.0" GridPane.rowIndex="2">
          <font>
             <Font size="18.0" />
          </font>

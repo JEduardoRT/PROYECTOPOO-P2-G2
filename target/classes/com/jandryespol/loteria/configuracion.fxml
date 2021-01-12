@@ -25,7 +25,7 @@
          </font>
       </Label>
       <ComboBox fx:id="cbCantidad" prefWidth="150.0" promptText="Elige la cantidad" translateX="50.0" translateY="30.0" visibleRowCount="2" />
-      <Button fx:id="btnSalir" mnemonicParsing="false" onAction="#regresarMenu" prefHeight="31.0" prefWidth="64.0" text="Regresar" translateX="30.0" translateY="30.0" GridPane.rowIndex="2" />
+      <Button fx:id="btnGuardar" mnemonicParsing="false" onAction="#guardar" prefHeight="31.0" prefWidth="64.0" text="Guardar" translateX="30.0" translateY="30.0" GridPane.rowIndex="2" />
       <Label text="Visibilidad del oponente:" translateX="20.0" translateY="-10.0" GridPane.rowIndex="1">
          <font>
             <Font size="20.0" />
@@ -45,5 +45,6 @@
             <Insets />
          </GridPane.margin>
       </Label>
+      <Button fx:id="btnSalir" mnemonicParsing="false" onAction="#salir" prefHeight="31.0" prefWidth="64.0" text="Cancelar" translateX="150.0" translateY="30.0" GridPane.rowIndex="2" />
    </children>
 </GridPane>
