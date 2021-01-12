@@ -12,12 +12,12 @@ import java.io.IOException;
  * JavaFX App
  */
 public class App extends Application {
-
+public static String path="src/main/resources/images/";
     private static Scene scene;
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("inicio"), 960, 540);
+        scene = new Scene(loadFXML("inicio"), 960, 483);
         stage.setScene(scene);
         stage.show();
     }

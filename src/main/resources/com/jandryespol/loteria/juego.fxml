@@ -11,7 +11,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.geometry.Insets?>
 
-<GridPane prefHeight="407.0" prefWidth="714.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.proyecto2021.PrimaryController">
+<GridPane prefHeight="481.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jandryespol.loteria.JuegoController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
   </columnConstraints>
@@ -19,14 +19,14 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <ImageView fitHeight="400.0" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="483.0" fitWidth="996.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@20191209181702-Loteria-doodle-google.jpeg" />
+            <Image url="file:/C:/Users/ken/OneDrive/Escritorio/Proyecto2021/PROYECTOPOO-P2-G2/src/main/resources/images/20191209181702-Loteria-doodle-google.jpeg" />
          </image>
       </ImageView>
-      <AnchorPane prefHeight="423.0" prefWidth="722.0">
+      <AnchorPane prefHeight="435.0" prefWidth="796.0">
          <children>
-            <GridPane layoutY="18.0" prefHeight="408.0" prefWidth="714.0">
+            <GridPane layoutY="10.0" prefHeight="490.0" prefWidth="825.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -36,7 +36,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <VBox prefHeight="405.0" prefWidth="237.0">
+                  <VBox prefHeight="493.0" prefWidth="277.0">
                      <children>
                         <Label text="Como ganar">
                            <font>
@@ -56,9 +56,10 @@
                               <Font name="System Bold Italic" size="18.0" />
                            </font>
                         </Label>
+                        <Button mnemonicParsing="false" onAction="#cargarImagen" text="Button" />
                      </children>
                   </VBox>
-                  <GridPane prefHeight="408.0" prefWidth="227.0" GridPane.columnIndex="1">
+                  <GridPane prefHeight="431.0" prefWidth="305.0" GridPane.columnIndex="1">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -71,11 +72,7 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <ImageView fitHeight="134.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@dama.jpg" />
-                           </image>
-                        </ImageView>
+                        <ImageView fx:id="taElegido" fitHeight="166.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true" />
                         <AnchorPane prefHeight="134.0" prefWidth="59.0">
                            <children>
                               <ImageView fitHeight="33.0" fitWidth="41.0" layoutX="14.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true" />
@@ -97,7 +94,7 @@
                         </AnchorPane>
                      </children>
                   </GridPane>
-                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2">
+                  <VBox prefHeight="408.0" prefWidth="294.0" GridPane.columnIndex="2">
                      <children>
                         <Label text="Carta en juego">
                            <font>
