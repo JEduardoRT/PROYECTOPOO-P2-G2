@@ -21,7 +21,7 @@
    <children>
       <ImageView fitHeight="483.0" fitWidth="996.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:/C:/Users/ken/OneDrive/Escritorio/Proyecto2021/PROYECTOPOO-P2-G2/src/main/resources/images/20191209181702-Loteria-doodle-google.jpeg" />
+            <Image url="@images/20191209181702-Loteria-doodle-google.jpeg" />
          </image>
       </ImageView>
       <AnchorPane prefHeight="435.0" prefWidth="796.0">
@@ -45,7 +45,7 @@
                         </Label>
                         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="file:/C:/Users/ken/OneDrive/Escritorio/imagen/como%20ganar.jpg" />
+                              <Image url="@images/dama.jpg" />
                            </image>
                            <VBox.margin>
                               <Insets left="60.0" right="20.0" />

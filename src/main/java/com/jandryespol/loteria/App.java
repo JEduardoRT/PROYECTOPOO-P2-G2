@@ -12,7 +12,7 @@ import java.io.IOException;
  * JavaFX App
  */
 public class App extends Application {
-public static String path="src/main/resources/images/";
+public static String path="src/main/resources/com/jandryespol/loteria/images/";
     private static Scene scene;
 
     @Override
