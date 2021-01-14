@@ -13,7 +13,7 @@
          <font>
             <Font size="48.0" />
          </font></Label>
-      <TextField>
+      <TextField fx:id="field" onAction="#ok">
          <font>
             <Font size="48.0" />
          </font>

@@ -23,7 +23,7 @@ public class ConfiguracionController{
     public void guardar() throws IOException{
         
         cant = cbCantidad.getValue() == null ? "1" : cbCantidad.getValue().toString(); //Almacenando la cantidad de oponentes
-        visibilidad = btnVisibilidad.getText().equals("Visible") ? "Visible" : "No visible"; //Almacenando si el enemigo es visible
+        visibilidad = btnVisibilidad.getText(); //Almacenando si el enemigo es visible
         
          try (BufferedWriter bw = new BufferedWriter(new FileWriter("archivos/conf.txt"))){
             bw.write(cant+"\n");
