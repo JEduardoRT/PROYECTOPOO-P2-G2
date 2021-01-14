@@ -8,7 +8,6 @@ public class NombreController {
     }
     public void ok() throws IOException, InterruptedException{
         App.setRoot("alineacion");
-        App.setRoot("alineacion");
         Thread.sleep(2000);
         App.setRoot("juego");
     }
