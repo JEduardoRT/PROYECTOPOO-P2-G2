@@ -23,7 +23,7 @@ public class ConfiguracionController{
     public void guardar() throws IOException{
         
         cant = cbCantidad.getValue() == null ? "1" : cbCantidad.getValue().toString(); //Almacenando la cantidad de oponentes
-        visibilidad = btnVisibilidad.getText().equals("Visible") ? "Si" : "No"; //Almacenando si el enemigo es visible
+        visibilidad = btnVisibilidad.getText().equals("Visible") ? "Visible" : "No visible"; //Almacenando si el enemigo es visible
         
          try (BufferedWriter bw = new BufferedWriter(new FileWriter("archivos/conf.txt"))){
             bw.write(cant+"\n");
@@ -42,15 +42,22 @@ public class ConfiguracionController{
     @FXML
     public void initialize(){
         cbCantidad.getItems().setAll(Arrays.asList("1", "2"));
+        try (BufferedReader br = new BufferedReader(new FileReader("archivos/conf.txt"))){
+            String line;
+            while ((line = br.readLine()) != null) {
+                if(line != "1" || line != "2")
+                    btnVisibilidad.setText(line);
+            }
+        } catch (IOException ex) {
+            System.out.println("IOException:" + ex.getMessage());
+        }
     }
     @FXML
     public  void cambiarVisibilidad(){
-        if(btnVisibilidad.getText().equals("Visible")){
+        if(btnVisibilidad.getText().equals("Visible"))
             btnVisibilidad.setText("No visible");
-            
-        }
-        else{
+        else
             btnVisibilidad.setText("Visible");
-}        }
+    }
     
 }
