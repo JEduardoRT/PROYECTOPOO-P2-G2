@@ -1,4 +1,13 @@
+modelo\Tablero.class
 com\jandryespol\loteria\App.class
-com\jandryespol\loteria\SecondaryController.class
-com\jandryespol\loteria\PrimaryController.class
+com\jandryespol\loteria\JuegoController.class
+modelo\Juego.class
+com\jandryespol\loteria\InicioController.class
+modelo\CartaJuego.class
+modelo\Jugador.class
+com\jandryespol\loteria\ConfiguracionController.class
+com\jandryespol\loteria\NombreController.class
 module-info.class
+com\jandryespol\loteria\ReporteController.class
+modelo\Carta.class
+modelo\Mazo.class
