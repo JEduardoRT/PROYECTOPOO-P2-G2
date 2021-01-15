@@ -15,16 +15,11 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
 import modelo.Carta;
 
 public class InicioController {
-ArrayList<Carta> mazo ;
-
-    @FXML
-    private Button botondesalida;
-    @FXML
-    private Button newGameBtn;
-    
+    ArrayList<Carta> mazo ;
     @FXML
     public void iniciarJuego() throws IOException{
         App.setRoot("nombre");
@@ -37,11 +32,9 @@ ArrayList<Carta> mazo ;
     public void configuracion() throws IOException{
         App.setRoot("configuracion");
     }
-     @FXML
-    public void salirPrograma(ActionEvent e){
-    
-            
-     System.exit(0);
+    @FXML
+    public void salirPrograma(ActionEvent e){       
+        System.exit(0);
     }
    
 }
