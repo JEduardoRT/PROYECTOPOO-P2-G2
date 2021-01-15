@@ -17,7 +17,7 @@ public static String path="src/main/resources/com/jandryespol/loteria/images/";
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("Inicio"), 960, 540);
+        scene = new Scene(loadFXML("fxml/Inicio"), 960, 540);
         stage.setScene(scene);
         stage.show();
     }

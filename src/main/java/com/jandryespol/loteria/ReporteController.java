@@ -15,7 +15,7 @@ public class ReporteController implements Initializable {
     
     @FXML
     public void regresarMenu() throws IOException{
-        App.setRoot("inicio");
+        App.setRoot("fxml/inicio");
     }
     
     @Override

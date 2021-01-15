@@ -22,7 +22,7 @@
    <children>
       <ImageView fitHeight="600.0" fitWidth="900.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/noche.png" />
+            <Image url="@../images/noche.png" />
          </image>
       </ImageView>
       <AnchorPane prefHeight="435.0" prefWidth="796.0">

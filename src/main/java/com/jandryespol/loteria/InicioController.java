@@ -19,18 +19,18 @@ import javafx.scene.layout.AnchorPane;
 import modelo.Carta;
 
 public class InicioController {
-    ArrayList<Carta> mazo ;
+    ArrayList<Carta> mazo;
     @FXML
     public void iniciarJuego() throws IOException{
-        App.setRoot("nombre");
+        App.setRoot("fxml/nombre");
     }
     @FXML
     public void reporte() throws IOException{
-        App.setRoot("reporte");
+        App.setRoot("fxml/reporte");
     }
     @FXML
     public void configuracion() throws IOException{
-        App.setRoot("configuracion");
+        App.setRoot("fxml/configuracion");
     }
     @FXML
     public void salirPrograma(ActionEvent e){       

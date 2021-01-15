@@ -13,9 +13,9 @@
 
 <AnchorPane prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jandryespol.loteria.InicioController">
    <children>
-      <ImageView fx:id="bg" fitHeight="540.0" fitWidth="960.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="540.0" fitWidth="960.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/fondo.jpg" />
+            <Image url="@../images/fondo.jpg" />
          </image>
       </ImageView>
       <GridPane layoutX="1.0" layoutY="31.0" prefHeight="455.0" prefWidth="960.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
