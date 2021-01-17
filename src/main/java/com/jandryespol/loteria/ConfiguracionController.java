@@ -33,11 +33,11 @@ public class ConfiguracionController{
             System.out.println("IOException:" + ex.getMessage());
         } 
         
-        App.setRoot("inicio");
+        App.setRoot("Inicio");
     }
     @FXML
     public void salir() throws  IOException{
-        App.setRoot("inicio");
+        App.setRoot("Inicio");
     }
     @FXML
     public void initialize(){

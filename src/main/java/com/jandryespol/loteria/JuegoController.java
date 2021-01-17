@@ -52,7 +52,7 @@ ArrayList<Carta> mazo_forma ;
 @FXML private ImageView imagencarta;
     public void loteria(){
         Alert alert = new Alert(AlertType.INFORMATION, "Has ganado!");
-alert.showAndWait();
+        alert.showAndWait();
     }
 
 public JuegoController() {
@@ -313,6 +313,7 @@ public void formaGanar(GridPane G) throws FileNotFoundException, IOException{
 
          JuegoController n = new  JuegoController();
       Cambioimagenes cam = new Cambioimagenes(imagencarta, App.path);
+      cam.setDaemon(true);
       cam.start();
     try {
         n.cargarTablero(gridP,67,127,20);
