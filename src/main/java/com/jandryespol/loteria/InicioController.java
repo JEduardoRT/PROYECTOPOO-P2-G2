@@ -19,22 +19,42 @@ import javafx.scene.layout.AnchorPane;
 import modelo.Carta;
 
 public class InicioController {
-    ArrayList<Carta> mazo;
+    ArrayList<Carta> mazo ;
     @FXML
+    private ImageView bg ;
+    @FXML
+    private Button newGameBtn;
+    @FXML
+    private Button botondesalida;
+    @FXML
+    
     public void iniciarJuego() throws IOException{
-        App.setRoot("fxml/nombre");
+        App.setRoot("nombre");
     }
     @FXML
     public void reporte() throws IOException{
-        App.setRoot("fxml/reporte");
+        App.setRoot("reporte");
     }
     @FXML
     public void configuracion() throws IOException{
-        App.setRoot("fxml/configuracion");
+        App.setRoot("configuracion");
     }
     @FXML
     public void salirPrograma(ActionEvent e){       
         System.exit(0);
     }
+    @FXML
+    private void initialize() throws FileNotFoundException  {
+
+         FileInputStream input=null;
+    
+        input = new FileInputStream(App.path+"fondo.jpg");
+        Image imagen = new Image(input, 960,540,false, false);
+        bg.setImage(imagen);
+
+    }
+
    
+
+
 }

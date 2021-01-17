@@ -3,9 +3,12 @@ package modelo;
 import java.util.ArrayList;
 
 public class Mazo {
+   
     ArrayList<Carta> mazo ;
-
-    public Mazo() {
+public Mazo(){}
+    public Mazo(Carta car, Posicion posicion) {
+        
+     
         this.mazo = new ArrayList<Carta>();;
     }
 
