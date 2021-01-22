@@ -9,9 +9,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import modelo.Main;
 
-/**
- * JavaFX App
- */
 public class App extends Application {
     public static String imagesPath="images/";
     public static String confPath="archivos/conf.txt";
@@ -33,5 +30,9 @@ public class App extends Application {
     }
     public static void main(String[] args) {
         launch();
+    }
+    //Metodo para cambiar el contenido de una escena
+    public static void changeRoot(Parent rootNode){
+        scene.setRoot(rootNode);
     }
 }

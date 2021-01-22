@@ -16,7 +16,8 @@ public class Juego {
     private Mazo mazo;
     private ArrayList<Carta> cartasJugadas;
     private Alineacion alineacion;
-    private static final List<Alineacion> VALUES = Collections.unmodifiableList(Arrays.asList(Alineacion.values()));
+    private EnumAlineacion numAlineacion;
+    private static final List<EnumAlineacion> VALUES = Collections.unmodifiableList(Arrays.asList(EnumAlineacion.values()));
     
     public Juego(ArrayList<Jugador> jugadores, Configuracion conf){
         Date hoy = new Date();
@@ -29,7 +30,15 @@ public class Juego {
         mazo.barajar();
         cartasJugadas = new ArrayList();
         Random r = new Random();
-        alineacion = VALUES.get(r.nextInt(3));
+        numAlineacion = VALUES.get(r.nextInt(3));
+    }
+    //Metodo para crear la alineacion
+    public Alineacion generarAlineacion(){
+        String prefijo = String.valueOf(numAlineacion);//Recuperando la alineacion
+        String ruta = "images/"+prefijo.toLowerCase()+".jpg";//Creando la ruta para la imagen de la alineacion
+        Alineacion al = new Alineacion(numAlineacion, ruta);
+        
+        return al;
     }
     public String getFecha(){
         return fecha;
@@ -48,5 +57,9 @@ public class Juego {
     }
     public void verificarJuego(){
         
+    }
+
+    public void setDuracion(int duracion){
+        this.duracion = duracion;
     }
 }

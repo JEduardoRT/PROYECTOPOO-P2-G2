@@ -9,6 +9,9 @@ import javafx.scene.control.TextField;
 import modelo.*;
 
 public class NombreController {
+    
+    ArrayList<Jugador> players;
+    Configuracion conf;
 
     @FXML
     private TextField field;
@@ -19,8 +22,9 @@ public class NombreController {
      @FXML
     public void ok() throws IOException, InterruptedException{
         String nombre = field.getText();
-        ArrayList<Jugador> players = new ArrayList();
+        players = new ArrayList();
         players.add(new Jugador(nombre,new Tablero()));
+        
         try(BufferedReader br = new BufferedReader(new FileReader(App.confPath))){
             String op = br.readLine();
             String visibilidad = br.readLine();
@@ -29,17 +33,18 @@ public class NombreController {
                 vb = true;
             else
                 vb= false;
-            Configuracion conf = new Configuracion(vb,Integer.parseInt(op));
+            conf = new Configuracion(vb,Integer.parseInt(op));
             if(op.equals("1"))
                 players.add(new Jugador("maquina1",new Tablero()));
-            else
+            else{
                 players.add(new Jugador("maquina1",new Tablero()));
                 players.add(new Jugador("maquina2",new Tablero()));
+            }
+            
             App.main.iniciarJuego(players,conf);
         } catch(IOException err){
             System.out.println("IOException:" + err.getMessage());
         }
         
-        App.setRoot("juego");
     }
 }

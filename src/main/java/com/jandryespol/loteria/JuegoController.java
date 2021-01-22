@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package com.jandryespol.loteria;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -27,13 +21,24 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
-import modelo.Carta;
-import modelo.Mazo;
-/**
- *
- * @author Jandry
- */
-public class JuegoController implements Initializable {
+import modelo.*;
+public class JuegoController{
+    //Atributos
+    ArrayList<Jugador> jugadores;
+    Configuracion conf;
+    Alineacion alineacion;
+    Juego juego;
+    
+    @FXML 
+    private ImageView comoGanar;
+    
+    //Metodo para recuperar la configuracion y jugadores
+    public void atributos(Juego juego){
+        this.jugadores = juego.getJugadores();
+        this.conf = juego.getConfiguracion();
+        this.alineacion = juego.generarAlineacion();
+        this.juego = juego;
+    }
     
 //ArrayList<Carta> mazo ;
 //@FXML private Text conteo;
@@ -342,22 +347,20 @@ public class JuegoController implements Initializable {
 //            System.out.print("Error");
 //            break;
 //    }
-//    
-//    
-//    
-//    
-// 
-//
 //}
-// 
-// 
-//
-//
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-//         
-//  
-//
+    
+    @FXML
+    public void initialize(){
+        atributos(juego);
+            //FileInputStream fis = null;
+        
+            //String ruta = App.class.getResource(alineacion.getRuta()).getPath();//Recuperando la ruta de la imagen
+            //fis = new FileInputStream(alineacion.getRuta());
+            //Image img = new Image(fis);
+            //comoGanar.setImage(img);//Añadiendo la imagen al ImageView
+            //System.out.println(alineacion.getRuta());
+        
+        
 //         JuegoController n = new  JuegoController();
 //        Cambioimagenes cam = new Cambioimagenes(imagencarta, App.imagespath);
 //        cam.setDaemon(true);
@@ -390,13 +393,9 @@ public class JuegoController implements Initializable {
 //        } catch (IOException ex) {
 //            ex.printStackTrace();
 //        }
-//    
-// 
-//       
-//
-//  
 //     
 //    }
+    }
 }
 
 
