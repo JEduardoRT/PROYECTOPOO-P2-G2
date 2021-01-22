@@ -1,45 +1,19 @@
 package modelo;
 
+import java.util.Objects;
+
 public class Carta {
-    String codigo;
-    String nombreImagen;
-    Posicion posicion;
+    String nombre;
+    String rutaImagen;
+    int numero;
 
-    public Carta(String codigo, String nombreImagen) {
-        this.codigo = codigo;
-        this.nombreImagen = nombreImagen;
+    public Carta(String nombre, String rutaImagen, int num) {
+        this.nombre = nombre;
+        this.rutaImagen = rutaImagen;
+        numero = num;
     }
-    
-    public Carta(String codigo, String nombreImagen,Posicion po) {
-        this.codigo = codigo;
-        this.nombreImagen = nombreImagen;
-        this.posicion = po;
-    }
-
-    public Posicion getPosicion() {
-        return posicion;
-    }
-
-    public String getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
-    }
-
-    public String getNombreImagen() {
-        return nombreImagen;
-    }
-
-    public void setNombreImagen(String nombreImagen) {
-        this.nombreImagen = nombreImagen;
-    }
-
-    @Override
-    public String toString() {
-        return "Carta{" + "codigo=" + codigo + ", nombreImagen=" + nombreImagen + '}';
-    }
-
-   
+//    @Override
+//    public boolean equals(Object obj) {
+//        
+//    }
 }
