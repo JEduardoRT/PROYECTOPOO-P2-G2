@@ -7,6 +7,9 @@ public class CartaJuego {
         carta = c;
         marcada = false;
     }
+    public Carta getCarta(){
+        return carta;
+    }
     public void marcarCarta(){
         marcada = true;
     }

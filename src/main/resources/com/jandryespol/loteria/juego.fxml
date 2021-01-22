@@ -45,7 +45,7 @@
                               <Font name="System Bold Italic" size="18.0" />
                            </font>
                         </Label>
-                        <ImageView fx:id="comoGanar" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="comoGanar" fitHeight="197.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true">
                            <VBox.margin>
                               <Insets left="50.0" />
                            </VBox.margin>
@@ -55,10 +55,10 @@
                               <Font name="System Bold Italic" size="18.0" />
                            </font>
                         </Label>
-                        <HBox prefHeight="100.0" prefWidth="200.0" translateY="100.0" />
+                        <HBox fx:id="oponentes" prefHeight="178.0" prefWidth="320.0" translateY="100.0" />
                      </children>
                   </VBox>
-                  <GridPane fx:id="gridP" hgap="5.0" prefHeight="431.0" prefWidth="305.0" vgap="10.0" GridPane.columnIndex="1">
+                  <GridPane fx:id="gridPlayer" prefHeight="431.0" prefWidth="305.0" GridPane.columnIndex="1">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />

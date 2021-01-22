@@ -6,7 +6,7 @@ public class Mazo {
     public Mazo() {
         this.cartas = new ArrayList();
         for(int i=1;i<55;i++){
-            cartas.add(new Carta(Integer.toString(i),Integer.toString(i)+".png",i));
+            cartas.add(new Carta(Integer.toString(i),Integer.toString(i)+".jpg",i));
         }
     }
     public void barajar(){

@@ -16,6 +16,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
@@ -23,21 +24,63 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import modelo.*;
 public class JuegoController{
-    //Atributos
-    ArrayList<Jugador> jugadores;
-    Configuracion conf;
-    Alineacion alineacion;
-    Juego juego;
     
     @FXML 
     private ImageView comoGanar;
-    
-    //Metodo para recuperar la configuracion y jugadores
-    public void atributos(Juego juego){
-        this.jugadores = juego.getJugadores();
-        this.conf = juego.getConfiguracion();
-        this.alineacion = juego.generarAlineacion();
-        this.juego = juego;
+    @FXML
+    GridPane gridPlayer;
+    @FXML
+    HBox oponentes;
+    @FXML
+    public void initialize() throws FileNotFoundException{
+        ArrayList<Juego> games = App.main.getJuegos();
+        Juego actualGame = games.get(games.size()-1);
+        FileInputStream input=null;
+        String path = App.class.getResource(App.imagesPath+actualGame.getAlineacion().getRuta()).getPath();   
+        input = new FileInputStream(path);
+        Image imagen = new Image(input,132,197,true,false);
+        comoGanar.setImage(imagen);
+        ArrayList<Jugador> players = actualGame.getJugadores();
+        for(int i=0;i<players.size();i++){
+            players.get(i).getTablero().llenarTablero(actualGame.getMazo().getCartas());
+        }
+        GridPane gp;
+        llenarGridPane(gridPlayer,players.get(0).getTablero().getCartas());
+        if(actualGame.getJugadores().size()==2){
+            gp = new GridPane();
+            llenarGridPane(gp,players.get(1).getTablero().getCartas());
+            oponentes.getChildren().add(gp);
+        }else{
+            gp = new GridPane();
+            llenarGridPane(gp,players.get(1).getTablero().getCartas());
+            oponentes.getChildren().add(gp);
+            gp = new GridPane();
+            llenarGridPane(gp,players.get(2).getTablero().getCartas());
+            oponentes.getChildren().add(gp);
+        }
+        
+        
+    }
+    public void llenarGridPane(GridPane gp, ArrayList<CartaJuego> cartas) throws FileNotFoundException{
+        StackPane sp;
+        ImageView view;
+        FileInputStream input;
+        Image imagen;
+        int col;
+        int fil;
+        for(int i=0;i<16;i++){
+            sp = new StackPane();
+            view = new ImageView();
+            String carta = cartas.get(i).getCarta().getRutaImagen();
+            String path = App.class.getResource(App.imagesPath+carta).getPath();   
+            input = new FileInputStream(path);
+            imagen = new Image(input,76,107, false, false);
+            view.setImage(imagen);
+            col = i%4;
+            fil = i/4;
+            sp.getChildren().add(view);
+            gp.add(sp, col, fil);
+        }
     }
     
 //ArrayList<Carta> mazo ;
@@ -349,53 +392,53 @@ public class JuegoController{
 //    }
 //}
     
-    @FXML
-    public void initialize(){
-        atributos(juego);
-            //FileInputStream fis = null;
-        
-            //String ruta = App.class.getResource(alineacion.getRuta()).getPath();//Recuperando la ruta de la imagen
-            //fis = new FileInputStream(alineacion.getRuta());
-            //Image img = new Image(fis);
-            //comoGanar.setImage(img);//Añadiendo la imagen al ImageView
-            //System.out.println(alineacion.getRuta());
-        
-        
-//         JuegoController n = new  JuegoController();
-//        Cambioimagenes cam = new Cambioimagenes(imagencarta, App.imagespath);
-//        cam.setDaemon(true);
-//        cam.start();
-//        try {
-//            n.cargarTablero(gridP,67,127,20);
-//        } catch (FileNotFoundException ex) {
-//            ex.printStackTrace();
-//             System.out.println("Hubo un error");
-//
-//        }
-//        try {
-//            n.cargarTablero(gridOponente,50,70,10);
-//        } catch (FileNotFoundException ex) {
-//            ex.printStackTrace();
-//            System.out.println("Hubo un error");
-//        }
-//    
+//    @FXML
+//    public void initialize(){
 //       
-////    try {
-////        n.cartaEnjuego(cartaenjuego);
-////    } catch (FileNotFoundException ex) {
-////        ex.printStackTrace();
-////        
+//            //FileInputStream fis = null;
+//        
+//            //String ruta = App.class.getResource(alineacion.getRuta()).getPath();//Recuperando la ruta de la imagen
+//            //fis = new FileInputStream(alineacion.getRuta());
+//            //Image img = new Image(fis);
+//            //comoGanar.setImage(img);//Añadiendo la imagen al ImageView
+//            //System.out.println(alineacion.getRuta());
+//        
+//        
+////         JuegoController n = new  JuegoController();
+////        Cambioimagenes cam = new Cambioimagenes(imagencarta, App.imagespath);
+////        cam.setDaemon(true);
+////        cam.start();
+////        try {
+////            n.cargarTablero(gridP,67,127,20);
+////        } catch (FileNotFoundException ex) {
+////            ex.printStackTrace();
+////             System.out.println("Hubo un error");
+////
+////        }
+////        try {
+////            n.cargarTablero(gridOponente,50,70,10);
+////        } catch (FileNotFoundException ex) {
+////            ex.printStackTrace();
+////            System.out.println("Hubo un error");
+////        }
+////    
+////       
+//////    try {
+//////        n.cartaEnjuego(cartaenjuego);
+//////    } catch (FileNotFoundException ex) {
+//////        ex.printStackTrace();
+//////        
+//////    }
+////
+////   
+////        try {
+////            n.formaGanar(comoganar);
+////        } catch (IOException ex) {
+////            ex.printStackTrace();
+////        }
+////     
 ////    }
-//
-//   
-//        try {
-//            n.formaGanar(comoganar);
-//        } catch (IOException ex) {
-//            ex.printStackTrace();
-//        }
-//     
 //    }
-    }
 }
 
 

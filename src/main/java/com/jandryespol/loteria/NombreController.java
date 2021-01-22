@@ -25,7 +25,7 @@ public class NombreController {
         players = new ArrayList();
         players.add(new Jugador(nombre,new Tablero()));
         
-        try(BufferedReader br = new BufferedReader(new FileReader(App.confPath))){
+        BufferedReader br = new BufferedReader(new FileReader(App.confPath));
             String op = br.readLine();
             String visibilidad = br.readLine();
             boolean vb=true;
@@ -40,11 +40,10 @@ public class NombreController {
                 players.add(new Jugador("maquina1",new Tablero()));
                 players.add(new Jugador("maquina2",new Tablero()));
             }
-            
             App.main.iniciarJuego(players,conf);
-        } catch(IOException err){
-            System.out.println("IOException:" + err.getMessage());
-        }
+//        } catch(IOException err){
+//            System.out.println("IOException:" + err.getMessage());
+//        }
         
     }
 }

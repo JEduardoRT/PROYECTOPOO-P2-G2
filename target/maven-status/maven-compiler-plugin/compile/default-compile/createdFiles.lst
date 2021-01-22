@@ -1,4 +1,5 @@
 modelo\Tablero.class
+modelo\EnumAlineacion.class
 com\jandryespol\loteria\App.class
 com\jandryespol\loteria\JuegoController.class
 modelo\Juego.class

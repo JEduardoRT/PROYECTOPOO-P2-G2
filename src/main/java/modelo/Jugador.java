@@ -12,7 +12,10 @@ public class Jugador {
     public String getNombre(){
         return nombre;
     }
+    public Tablero getTablero(){
+        return tablero;
+    }
     public void verificarTablero(ArrayList<Carta> c){
-        tablero.llenarTablero(c);
+        
     }
 }

@@ -12,6 +12,9 @@ public class Carta {
         this.rutaImagen = rutaImagen;
         numero = num;
     }
+    public String getRutaImagen(){
+        return rutaImagen;
+    }
 //    @Override
 //    public boolean equals(Object obj) {
 //        

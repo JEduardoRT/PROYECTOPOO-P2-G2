@@ -31,14 +31,9 @@ public class Juego {
         cartasJugadas = new ArrayList();
         Random r = new Random();
         numAlineacion = VALUES.get(r.nextInt(3));
-    }
-    //Metodo para crear la alineacion
-    public Alineacion generarAlineacion(){
         String prefijo = String.valueOf(numAlineacion);//Recuperando la alineacion
-        String ruta = "images/"+prefijo.toLowerCase()+".jpg";//Creando la ruta para la imagen de la alineacion
-        Alineacion al = new Alineacion(numAlineacion, ruta);
-        
-        return al;
+        String ruta = prefijo.toLowerCase()+".jpg";//Creando la ruta para la imagen de la alineacion
+        alineacion = new Alineacion(numAlineacion, ruta);
     }
     public String getFecha(){
         return fecha;
@@ -58,7 +53,9 @@ public class Juego {
     public void verificarJuego(){
         
     }
-
+    public Mazo getMazo(){
+        return mazo;
+    }
     public void setDuracion(int duracion){
         this.duracion = duracion;
     }

@@ -18,14 +18,8 @@ public class Main {
     public void iniciarJuego(ArrayList<Jugador> jugadores, Configuracion conf) throws IOException{
         Juego juego = new Juego(jugadores,conf);
         juegos.add(juego);
-        
         FXMLLoader fXMLLoader = new FXMLLoader(App.class.getResource("juego.fxml"));
         Parent root = (Parent) fXMLLoader.load();
-        
-        JuegoController jc = fXMLLoader.getController();
-        
-        jc.atributos(juego);
-        
         App.changeRoot(root);
     }
     public ArrayList<Juego> getJuegos(){

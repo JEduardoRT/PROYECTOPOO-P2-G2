@@ -14,4 +14,7 @@ public class Tablero {
                 cartas.add(new CartaJuego(array.get(i)));
         }
     }
+    public ArrayList<CartaJuego> getCartas(){
+        return cartas;
+    }
 }
