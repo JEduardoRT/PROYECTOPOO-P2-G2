@@ -1,5 +1,8 @@
 package modelo;
-public class Configuracion {
+
+import java.io.Serializable;
+
+public class Configuracion implements Serializable{
     private boolean visibilidad;
     private int numOponentes;
     public Configuracion(boolean visible, int oponentes){

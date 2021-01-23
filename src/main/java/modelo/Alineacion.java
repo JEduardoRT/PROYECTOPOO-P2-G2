@@ -1,6 +1,8 @@
 package modelo;
 
-public class Alineacion {
+import java.io.Serializable;
+
+public class Alineacion implements Serializable{
     //Atributos
     private EnumAlineacion alineacion;
     private String ruta;

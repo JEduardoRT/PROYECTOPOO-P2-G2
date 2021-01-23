@@ -12,11 +12,12 @@ import modelo.Main;
 public class App extends Application {
     public static String imagesPath="images/";
     public static String confPath="archivos/conf.txt";
-    public static String reportePath="archivos/reporte.txt";
+    public static String reportePath="archivos/";
+    public static String cantJuegosPath="archivos/cantJuegos.txt";
     private static Scene scene; 
     public static Main main;
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) throws IOException, ClassNotFoundException {
         main = new Main();
         scene = new Scene(loadFXML("Inicio"), 960, 540);
         stage.setScene(scene);

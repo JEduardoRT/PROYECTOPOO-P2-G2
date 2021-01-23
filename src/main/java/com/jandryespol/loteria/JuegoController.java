@@ -1,7 +1,10 @@
 package com.jandryespol.loteria;
+import static com.jandryespol.loteria.App.main;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Random;
@@ -25,6 +28,7 @@ import javafx.scene.shape.Rectangle;
 import modelo.*;
 public class JuegoController{
     Juego actualGame;
+    Contador c;
     @FXML 
     private ImageView comoGanar;
     @FXML
@@ -36,8 +40,9 @@ public class JuegoController{
     @FXML
     public void initialize() throws FileNotFoundException{
         ArrayList<Juego> games = App.main.getJuegos();
+        System.out.println(games);
         actualGame = games.get(games.size()-1);
-        Contador c = new Contador(actualGame);
+        c = new Contador(actualGame);
         c.setDaemon(true);
         c.start();
         FileInputStream input=null;
@@ -145,10 +150,10 @@ public class JuegoController{
                 if(carta.equals(cartasJugadas.get(cartasJugadas.size()-1).getRutaImagen())){
                     sp.getChildren().add(cir);
                     String ruta;
-                    for(CartaJuego c : cJ){
-                        ruta = c.getCarta().getRutaImagen();
+                    for(CartaJuego ca : cJ){
+                        ruta = ca.getCarta().getRutaImagen();
                         if(ruta.equals(carta))
-                            c.marcarCarta();
+                            ca.marcarCarta();
                     }
                 }else{
                     MalaCarta mc = new MalaCarta(rect, malaCarta);
@@ -158,7 +163,29 @@ public class JuegoController{
             gp.add(sp, col, fil);
         }
     }
-    
+    @FXML
+    public void loteria(){
+        if(actualGame.getJugadores().get(0).verificarTablero(actualGame.getNumAlineacion())){ //Verifica que se cumpla la alineacion
+            actualGame.setGanador(actualGame.getJugadores().get(0)); //Actualiza ganador
+            actualGame.setDuracion(c.getJuego().getDuracion()); //Actualiza duracion del juego
+            c.setJuego(actualGame); //Termina el contador
+            FileOutputStream fout;  
+            try {
+                fout = new FileOutputStream(App.reportePath+"juego"+(main.getJuegos().size()-1)+".ser");
+                ObjectOutputStream out=new ObjectOutputStream(fout);
+                out.writeObject(actualGame);  
+                out.flush();
+                Alert alert = new Alert(AlertType.INFORMATION, "Has ganado!");
+                alert.showAndWait();
+                App.setRoot("Inicio");
+            } catch (FileNotFoundException ex) {
+                ex.printStackTrace();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }else
+            System.out.println("Sigue jugando");
+    }
 //ArrayList<Carta> mazo ;
 //@FXML private Text conteo;
 //

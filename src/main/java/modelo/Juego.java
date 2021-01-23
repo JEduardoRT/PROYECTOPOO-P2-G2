@@ -3,6 +3,7 @@ package modelo;
 import com.jandryespol.loteria.App;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -14,7 +15,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 
-public class Juego extends Thread{
+public class Juego extends Thread implements Serializable{
     private String fecha;
     private int duracion;
     private ArrayList<Jugador> jugadores;
@@ -24,7 +25,7 @@ public class Juego extends Thread{
     private ArrayList<Carta> cartasJugadas;
     private Alineacion alineacion;
     private EnumAlineacion numAlineacion;
-    private Rectangle view;
+    private transient Rectangle view;
     private static final List<EnumAlineacion> VALUES = Collections.unmodifiableList(Arrays.asList(EnumAlineacion.values()));
     
     public Juego(ArrayList<Jugador> jugadores, Configuracion conf){
@@ -67,11 +68,17 @@ public class Juego extends Thread{
     public void verificarJuego(){
         
     }
+    public EnumAlineacion getNumAlineacion(){
+        return numAlineacion;
+    }
     public Mazo getMazo(){
         return mazo;
     }
     public void setDuracion(int duracion){
         this.duracion = duracion;
+    }
+    public void setGanador(Jugador winner){
+        ganador = winner;
     }
     public ArrayList<Carta> getCartasJugadas(){
         return cartasJugadas;

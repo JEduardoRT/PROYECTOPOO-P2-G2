@@ -14,6 +14,12 @@ public class Contador extends Thread{
     public Contador(Juego j){
         juego = j;
     }
+    public void setJuego(Juego j){
+        juego = j;
+    }
+    public Juego getJuego(){
+        return juego;
+    }
     public void run(){
         while(juego.getGanador()==null){
             try {

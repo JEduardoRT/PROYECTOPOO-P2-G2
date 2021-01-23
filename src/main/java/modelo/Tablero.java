@@ -1,8 +1,9 @@
 package modelo;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Tablero {
+public class Tablero implements Serializable{
     private ArrayList<CartaJuego> cartas;
     public Tablero(){
         cartas = new ArrayList();

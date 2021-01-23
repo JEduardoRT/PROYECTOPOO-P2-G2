@@ -1,6 +1,8 @@
 package modelo;
 
-public class CartaJuego {
+import java.io.Serializable;
+
+public class CartaJuego implements Serializable{
     private Carta carta;
     private boolean marcada;
     public CartaJuego(Carta c){
@@ -9,6 +11,9 @@ public class CartaJuego {
     }
     public Carta getCarta(){
         return carta;
+    }
+    public boolean getMarcada(){
+        return marcada;
     }
     public void marcarCarta(){
         marcada = true;

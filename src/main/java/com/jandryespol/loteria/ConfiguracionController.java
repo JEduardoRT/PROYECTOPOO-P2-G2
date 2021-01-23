@@ -44,6 +44,10 @@ public class ConfiguracionController{
             while ((line = br.readLine()) != null) {
                 if(!line.equals("1") || !line.equals("2"))
                     btnVisibilidad.setText(line);
+                    if(line.equals("Visible"))
+                        btnVisibilidad.setStyle("-fx-background-color:#00DB06");
+                    else
+                        btnVisibilidad.setStyle("-fx-background-color:#F00000");
             }
         } catch (IOException ex) {
             System.out.println("IOException:" + ex.getMessage());
@@ -51,9 +55,13 @@ public class ConfiguracionController{
     }
     @FXML
     public  void cambiarVisibilidad(){
-        if(btnVisibilidad.getText().equals("Visible"))
+        if(btnVisibilidad.getText().equals("Visible")){
             btnVisibilidad.setText("No visible");
-        else
+            btnVisibilidad.setStyle("-fx-background-color:#F00000");
+        }
+        else{
             btnVisibilidad.setText("Visible");
+            btnVisibilidad.setStyle("-fx-background-color:#00DB06");
+        }
     }   
 }

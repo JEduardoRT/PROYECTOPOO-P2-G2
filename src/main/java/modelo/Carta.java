@@ -1,8 +1,9 @@
 package modelo;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Carta {
+public class Carta implements Serializable{
     String nombre;
     String rutaImagen;
     int numero;
