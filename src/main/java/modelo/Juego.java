@@ -1,13 +1,19 @@
 package modelo;
 
+import com.jandryespol.loteria.App;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
+import javafx.scene.image.Image;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Rectangle;
 
-public class Juego {
+public class Juego extends Thread{
     private String fecha;
     private int duracion;
     private ArrayList<Jugador> jugadores;
@@ -17,6 +23,7 @@ public class Juego {
     private ArrayList<Carta> cartasJugadas;
     private Alineacion alineacion;
     private EnumAlineacion numAlineacion;
+    private Rectangle view;
     private static final List<EnumAlineacion> VALUES = Collections.unmodifiableList(Arrays.asList(EnumAlineacion.values()));
     
     public Juego(ArrayList<Jugador> jugadores, Configuracion conf){
@@ -58,5 +65,27 @@ public class Juego {
     }
     public void setDuracion(int duracion){
         this.duracion = duracion;
+    }
+    public void mostrarCartas(Rectangle view){
+        ArrayList<Carta> cartas = mazo.getCartas();
+        try{
+            for(Carta carta : cartas){
+                String ruta = carta.getRutaImagen();
+                String path = App.class.getResource(App.imagesPath+ruta).getPath(); 
+                FileInputStream input = new FileInputStream(path);
+                Image img = new Image(input);
+                view.setFill(new ImagePattern(img));                
+                this.sleep(3000);
+            }
+        }catch(FileNotFoundException | InterruptedException err){
+            System.out.println("IOException:" + err.getMessage());
+        }
+    }
+    public void setView(Rectangle view){
+        this.view = view;
+    }
+    @Override
+    public void run(){
+        mostrarCartas(view);
     }
 }

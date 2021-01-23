@@ -12,6 +12,7 @@ import modelo.Main;
 public class App extends Application {
     public static String imagesPath="images/";
     public static String confPath="archivos/conf.txt";
+    public static String reportePath="archivos/reporte.txt";
     private static Scene scene; 
     public static Main main;
     @Override

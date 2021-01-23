@@ -11,6 +11,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -55,7 +56,10 @@
                               <Font name="System Bold Italic" size="18.0" />
                            </font>
                         </Label>
-                        <HBox fx:id="oponentes" prefHeight="178.0" prefWidth="320.0" translateY="100.0" />
+                        <HBox fx:id="oponentes" prefHeight="254.0" prefWidth="285.0" spacing="10.0">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="30.0" />
+                           </VBox.margin></HBox>
                      </children>
                   </VBox>
                   <GridPane fx:id="gridPlayer" prefHeight="431.0" prefWidth="305.0" GridPane.columnIndex="1">
@@ -82,17 +86,7 @@
                               <Insets left="60.0" />
                            </VBox.margin>
                         </Label>
-                        <GridPane fx:id="cartaenjuego1" prefHeight="372.0" prefWidth="275.0">
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                           <children>
-                              <ImageView fx:id="imagencarta" fitHeight="368.0" fitWidth="279.0" pickOnBounds="true" preserveRatio="true" />
-                           </children>
-                        </GridPane>
+                        <Rectangle fx:id="cartaJugando" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="358.0" stroke="BLACK" strokeType="INSIDE" width="265.0" />
                         <Button mnemonicParsing="false" prefHeight="66.0" prefWidth="181.0" text="LOTERIA">
                            <VBox.margin>
                               <Insets bottom="10.0" left="30.0" right="20.0" top="10.0" />
@@ -100,6 +94,9 @@
                         </Button>
                         <Text fx:id="conteo" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
                      </children>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
                   </VBox>
                </children>
             </GridPane>

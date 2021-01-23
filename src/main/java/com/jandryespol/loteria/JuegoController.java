@@ -18,10 +18,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Text;
 import modelo.*;
 public class JuegoController{
     
@@ -31,6 +31,8 @@ public class JuegoController{
     GridPane gridPlayer;
     @FXML
     HBox oponentes;
+    @FXML
+    Rectangle cartaJugando;
     @FXML
     public void initialize() throws FileNotFoundException{
         ArrayList<Juego> games = App.main.getJuegos();
@@ -45,40 +47,48 @@ public class JuegoController{
             players.get(i).getTablero().llenarTablero(actualGame.getMazo().getCartas());
         }
         GridPane gp;
-        llenarGridPane(gridPlayer,players.get(0).getTablero().getCartas());
+        llenarGridPane(gridPlayer,players.get(0).getTablero().getCartas(),76,107,15);
         if(actualGame.getJugadores().size()==2){
             gp = new GridPane();
-            llenarGridPane(gp,players.get(1).getTablero().getCartas());
+            llenarGridPane(gp,players.get(1).getTablero().getCartas(),36,51,10);
             oponentes.getChildren().add(gp);
         }else{
             gp = new GridPane();
-            llenarGridPane(gp,players.get(1).getTablero().getCartas());
+            llenarGridPane(gp,players.get(1).getTablero().getCartas(),36,51,10);
             oponentes.getChildren().add(gp);
             gp = new GridPane();
-            llenarGridPane(gp,players.get(2).getTablero().getCartas());
+            llenarGridPane(gp,players.get(2).getTablero().getCartas(),36,51,10 );
             oponentes.getChildren().add(gp);
         }
-        
-        
+        actualGame.setView(cartaJugando);
+        actualGame.setDaemon(true);
+        actualGame.start();
     }
-    public void llenarGridPane(GridPane gp, ArrayList<CartaJuego> cartas) throws FileNotFoundException{
-        StackPane sp;
-        ImageView view;
+    public void llenarGridPane(GridPane gp, ArrayList<CartaJuego> cartas,int ancho, int largo, int radio) throws FileNotFoundException{
+        Rectangle rect;
         FileInputStream input;
+        FileInputStream input2;
         Image imagen;
+        Image frejol;
         int col;
         int fil;
         for(int i=0;i<16;i++){
-            sp = new StackPane();
-            view = new ImageView();
+            StackPane sp = new StackPane();
             String carta = cartas.get(i).getCarta().getRutaImagen();
-            String path = App.class.getResource(App.imagesPath+carta).getPath();   
+            String path = App.class.getResource(App.imagesPath+carta).getPath();  
             input = new FileInputStream(path);
-            imagen = new Image(input,76,107, false, false);
-            view.setImage(imagen);
+            input2 = new FileInputStream(App.class.getResource(App.imagesPath+"pepa.jpg").getPath());
+            imagen = new Image(input);
+            frejol = new Image(input2);
+            rect = new Rectangle(ancho,largo,new ImagePattern(imagen));
             col = i%4;
             fil = i/4;
-            sp.getChildren().add(view);
+            sp.getChildren().add(rect);
+            Circle cir = new Circle(radio,new ImagePattern(frejol));
+            rect.setOnMouseClicked(e->{
+                   sp.getChildren().add(cir);
+                   
+            });
             gp.add(sp, col, fil);
         }
     }
