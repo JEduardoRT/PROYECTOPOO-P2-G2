@@ -50,5 +50,4 @@ public class ReporteController implements Initializable {
         }
         gpReporte.add(tablaReporte,0,1);
     }    
-    
 }

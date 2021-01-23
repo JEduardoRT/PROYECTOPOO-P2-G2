@@ -24,7 +24,7 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import modelo.*;
 public class JuegoController{
-    
+    Juego actualGame;
     @FXML 
     private ImageView comoGanar;
     @FXML
@@ -36,7 +36,10 @@ public class JuegoController{
     @FXML
     public void initialize() throws FileNotFoundException{
         ArrayList<Juego> games = App.main.getJuegos();
-        Juego actualGame = games.get(games.size()-1);
+        actualGame = games.get(games.size()-1);
+        Contador c = new Contador(actualGame);
+        c.setDaemon(true);
+        c.start();
         FileInputStream input=null;
         String path = App.class.getResource(App.imagesPath+actualGame.getAlineacion().getRuta()).getPath();   
         input = new FileInputStream(path);
@@ -47,25 +50,74 @@ public class JuegoController{
             players.get(i).getTablero().llenarTablero(actualGame.getMazo().getCartas());
         }
         GridPane gp;
-        llenarGridPane(gridPlayer,players.get(0).getTablero().getCartas(),76,107,15);
-        if(actualGame.getJugadores().size()==2){
-            gp = new GridPane();
-            llenarGridPane(gp,players.get(1).getTablero().getCartas(),36,51,10);
-            oponentes.getChildren().add(gp);
+        llenarGridPaneP(gridPlayer,players.get(0).getTablero().getCartas(),76,107,15);
+        if(actualGame.getConfiguracion().getVisibilidad()){
+            if(actualGame.getJugadores().size()==2){
+                gp = new GridPane();
+                llenarGridPaneM(gp,players.get(1).getTablero().getCartas(),36,51,10);
+                oponentes.getChildren().add(gp);
+            }else{
+                gp = new GridPane();
+                llenarGridPaneM(gp,players.get(1).getTablero().getCartas(),36,51,10);
+                oponentes.getChildren().add(gp);
+                gp = new GridPane();
+                llenarGridPaneM(gp,players.get(2).getTablero().getCartas(),36,51,10 );
+                oponentes.getChildren().add(gp);
+            }
         }else{
-            gp = new GridPane();
-            llenarGridPane(gp,players.get(1).getTablero().getCartas(),36,51,10);
-            oponentes.getChildren().add(gp);
-            gp = new GridPane();
-            llenarGridPane(gp,players.get(2).getTablero().getCartas(),36,51,10 );
-            oponentes.getChildren().add(gp);
+            if(actualGame.getJugadores().size()==2){
+                gp = new GridPane();
+                llenarGridPaneV(gp,36,51,10);
+                oponentes.getChildren().add(gp);
+            }else{
+                gp = new GridPane();
+                llenarGridPaneV(gp,36,51,10);
+                oponentes.getChildren().add(gp);
+                gp = new GridPane();
+                llenarGridPaneV(gp,36,51,10 );
+                oponentes.getChildren().add(gp);
+            }
         }
         actualGame.setView(cartaJugando);
         actualGame.setDaemon(true);
         actualGame.start();
     }
-    public void llenarGridPane(GridPane gp, ArrayList<CartaJuego> cartas,int ancho, int largo, int radio) throws FileNotFoundException{
-        Rectangle rect;
+    public void llenarGridPaneV(GridPane gp, int ancho, int largo, int radio) throws FileNotFoundException{
+        FileInputStream input;
+        Image imagen;
+        int col;
+        int fil;
+        for(int i=0;i<16;i++){
+            StackPane sp = new StackPane();
+            String path = App.class.getResource(App.imagesPath+"back.png").getPath();  
+            input = new FileInputStream(path);
+            imagen = new Image(input);
+            Rectangle rect = new Rectangle(ancho,largo,new ImagePattern(imagen));
+            col = i%4;
+            fil = i/4;
+            sp.getChildren().add(rect);
+            gp.add(sp, col, fil);
+        }
+    }
+    public void llenarGridPaneM(GridPane gp, ArrayList<CartaJuego> cartas, int ancho, int largo, int radio) throws FileNotFoundException{
+        FileInputStream input;
+        Image imagen;
+        int col;
+        int fil;
+        for(int i=0;i<16;i++){
+            StackPane sp = new StackPane();
+            String carta = cartas.get(i).getCarta().getRutaImagen();
+            String path = App.class.getResource(App.imagesPath+carta).getPath();  
+            input = new FileInputStream(path);
+            imagen = new Image(input);
+            Rectangle rect = new Rectangle(ancho,largo,new ImagePattern(imagen));
+            col = i%4;
+            fil = i/4;
+            sp.getChildren().add(rect);
+            gp.add(sp, col, fil);
+        }
+    }
+    public void llenarGridPaneP(GridPane gp, ArrayList<CartaJuego> cartas,int ancho, int largo, int radio) throws FileNotFoundException{
         FileInputStream input;
         FileInputStream input2;
         Image imagen;
@@ -78,16 +130,30 @@ public class JuegoController{
             String path = App.class.getResource(App.imagesPath+carta).getPath();  
             input = new FileInputStream(path);
             input2 = new FileInputStream(App.class.getResource(App.imagesPath+"pepa.jpg").getPath());
+            FileInputStream input3 = new FileInputStream(App.class.getResource(App.imagesPath+"equis.png").getPath());
             imagen = new Image(input);
             frejol = new Image(input2);
-            rect = new Rectangle(ancho,largo,new ImagePattern(imagen));
+            Image malaCarta = new Image(input3);
+            Rectangle rect = new Rectangle(ancho,largo,new ImagePattern(imagen));
             col = i%4;
             fil = i/4;
             sp.getChildren().add(rect);
             Circle cir = new Circle(radio,new ImagePattern(frejol));
             rect.setOnMouseClicked(e->{
-                   sp.getChildren().add(cir);
-                   
+                ArrayList<Carta> cartasJugadas = actualGame.getCartasJugadas();
+                ArrayList<CartaJuego> cJ = actualGame.getJugadores().get(0).getTablero().getCartas();
+                if(carta.equals(cartasJugadas.get(cartasJugadas.size()-1).getRutaImagen())){
+                    sp.getChildren().add(cir);
+                    String ruta;
+                    for(CartaJuego c : cJ){
+                        ruta = c.getCarta().getRutaImagen();
+                        if(ruta.equals(carta))
+                            c.marcarCarta();
+                    }
+                }else{
+                    MalaCarta mc = new MalaCarta(rect, malaCarta);
+                    mc.start();
+                }
             });
             gp.add(sp, col, fil);
         }

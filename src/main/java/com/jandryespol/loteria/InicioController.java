@@ -36,8 +36,4 @@ public class InicioController {
     public void salirPrograma(ActionEvent e){       
         System.exit(0);
     }
-
-   
-
-
 }

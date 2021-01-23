@@ -10,6 +10,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 import javafx.scene.image.Image;
+import javafx.scene.layout.StackPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 
@@ -57,6 +58,12 @@ public class Juego extends Thread{
     public Alineacion getAlineacion(){
         return alineacion;
     }
+    public Jugador getGanador(){
+        return ganador;
+    }
+    public void masUnSegundo(){
+        duracion++;
+    }
     public void verificarJuego(){
         
     }
@@ -66,6 +73,9 @@ public class Juego extends Thread{
     public void setDuracion(int duracion){
         this.duracion = duracion;
     }
+    public ArrayList<Carta> getCartasJugadas(){
+        return cartasJugadas;
+    }
     public void mostrarCartas(Rectangle view){
         ArrayList<Carta> cartas = mazo.getCartas();
         try{
@@ -74,7 +84,8 @@ public class Juego extends Thread{
                 String path = App.class.getResource(App.imagesPath+ruta).getPath(); 
                 FileInputStream input = new FileInputStream(path);
                 Image img = new Image(input);
-                view.setFill(new ImagePattern(img));                
+                view.setFill(new ImagePattern(img)); 
+                cartasJugadas.add(carta);
                 this.sleep(3000);
             }
         }catch(FileNotFoundException | InterruptedException err){
