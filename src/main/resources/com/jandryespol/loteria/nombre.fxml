@@ -10,7 +10,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jandryespol.loteria.NombreController">
    <children>
       <ImageView fitHeight="540.0" fitWidth="960.0" pickOnBounds="true" preserveRatio="true">
@@ -30,12 +29,12 @@
                   <Font size="48.0" />
                </font>
             </TextField>
-            <Button onAction="#ok" text="OK">
+            <Button onAction="#ok" style="-fx-background-color: #FFFFFF;" text="OK">
                <font>
                   <Font size="48.0" />
                </font>
             </Button>
-            <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#regresarMenu" text="Cancelar">
+            <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#regresarMenu" style="-fx-background-color: #FFFFFF;" text="Cancelar">
                <font>
                   <Font size="48.0" />
                </font>

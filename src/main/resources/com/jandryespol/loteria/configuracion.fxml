@@ -36,8 +36,8 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <ComboBox fx:id="cbCantidad" prefWidth="150.0" promptText="Elige la cantidad" translateX="50.0" translateY="30.0" visibleRowCount="2" />
-            <Button fx:id="btnGuardar" mnemonicParsing="false" onAction="#guardar" prefHeight="60.0" prefWidth="142.0" text="Guardar" translateX="30.0" translateY="30.0" GridPane.rowIndex="2">
+            <ComboBox fx:id="cbCantidad" prefHeight="36.0" prefWidth="171.0" promptText="Elige la cantidad" translateX="50.0" translateY="30.0" visibleRowCount="2" />
+            <Button fx:id="btnGuardar" mnemonicParsing="false" onAction="#guardar" prefHeight="60.0" prefWidth="142.0" style="-fx-background-color: #FFFFFF;" text="Guardar" translateX="30.0" translateY="30.0" GridPane.rowIndex="2">
                <font>
                   <Font size="28.0" />
                </font>
@@ -74,7 +74,7 @@
                   <Insets />
                </GridPane.margin>
             </Label>
-            <Button fx:id="btnSalir" mnemonicParsing="false" onAction="#salir" prefHeight="60.0" prefWidth="162.0" text="Cancelar" translateX="150.0" translateY="30.0" GridPane.rowIndex="2">
+            <Button fx:id="btnSalir" mnemonicParsing="false" onAction="#salir" prefHeight="60.0" prefWidth="162.0" style="-fx-background-color: #FFFFFF;" text="Cancelar" translateX="150.0" translateY="30.0" GridPane.rowIndex="2">
                <font>
                   <Font size="28.0" />
                </font>

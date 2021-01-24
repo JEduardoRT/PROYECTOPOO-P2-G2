@@ -1,8 +1,13 @@
 package modelo;
 
 import com.jandryespol.loteria.App;
+import com.jandryespol.loteria.JuegoController;
+import static com.jandryespol.loteria.App.main;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -11,9 +16,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 import javafx.scene.image.Image;
-import javafx.scene.layout.StackPane;
 import javafx.scene.paint.ImagePattern;
-import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 
 public class Juego extends Thread implements Serializable{
@@ -27,8 +30,7 @@ public class Juego extends Thread implements Serializable{
     private Alineacion alineacion;
     private EnumAlineacion numAlineacion;
     private transient Rectangle view;
-    private transient StackPane sp;
-    private transient Circle cir;
+    private transient Contador counter;
     private static final List<EnumAlineacion> VALUES = Collections.unmodifiableList(Arrays.asList(EnumAlineacion.values()));
     
     public Juego(ArrayList<Jugador> jugadores, Configuracion conf){
@@ -68,7 +70,53 @@ public class Juego extends Thread implements Serializable{
     public void masUnSegundo(){
         duracion++;
     }
-    public void verificarJuego(){
+    public void perdiste(int i){
+        this.setGanador(this.getJugadores().get(i)); //Actualiza ganador
+        this.setDuracion(JuegoController.c.getJuego().getDuracion()); //Actualiza duracion del juego
+        JuegoController.c.setJuego(this); //Termina el contador
+        FileOutputStream fout;  
+            try {
+                fout = new FileOutputStream(App.reportePath+"juego"+(main.getJuegos().size()-1)+".ser");
+                ObjectOutputStream out=new ObjectOutputStream(fout);
+                out.writeObject(this);  
+                out.flush();
+                App.setRoot("perdiste");
+            } catch (FileNotFoundException ex) {
+                ex.printStackTrace();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+    }
+    public void verificarJuego(String rutaJugada){
+//        FileInputStream input2 = new FileInputStream(App.class.getResource(App.imagesPath+"pepa.jpg").getPath());
+//        Image frejol = new Image(input2);
+//        Circle cir = new Circle(10,new ImagePattern(frejol));
+        
+            for(int i = 1; i < jugadores.size(); i++){
+                for(int j=0;j<jugadores.get(i).getTablero().getCartas().size();j++){
+                    CartaJuego c = jugadores.get(i).getTablero().getCartas().get(j);
+                    if(c.getCarta().getRutaImagen().equals(rutaJugada)){
+    //                    oponentes.getChildren().get(i).getChildren().get(j);
+                        c.marcarCarta();
+                        if(jugadores.get(i).verificarTablero(numAlineacion)){
+                            this.perdiste(i);
+                        }
+                    }
+                }
+                if(jugadores.size()==3){
+                    try {
+                        this.sleep(500);
+                    } catch (InterruptedException ex) {
+                        System.out.println("error");
+                    }
+                }else if(jugadores.size()==2){
+                    try {
+                        this.sleep(1000);
+                    } catch (InterruptedException ex) {
+                        System.out.println("error");
+                    }
+                }
+            }
         
     }
     public EnumAlineacion getNumAlineacion(){
@@ -96,14 +144,8 @@ public class Juego extends Thread implements Serializable{
                 Image img = new Image(input);
                 view.setFill(new ImagePattern(img)); 
                 cartasJugadas.add(carta);
-                for(int i = 1; i < jugadores.size(); i++){
-                    for(CartaJuego c : jugadores.get(i).getTablero().getCartas()){
-                        if(c.getCarta().equals(carta))
-                            c.marcarCarta();
-                            //Codigo para poner frejol
-                    }
-                }
-                this.sleep(3000);
+                this.verificarJuego(ruta);
+                this.sleep(2000);
             }
         }catch(FileNotFoundException | InterruptedException err){
             System.out.println("IOException:" + err.getMessage());

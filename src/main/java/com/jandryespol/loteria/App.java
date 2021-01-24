@@ -1,4 +1,4 @@
-package com.jandryespol.loteria;
+    package com.jandryespol.loteria;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import javafx.scene.control.Alert;
 import modelo.Main;
 
 public class App extends Application {
@@ -23,7 +24,7 @@ public class App extends Application {
         stage.setScene(scene);
         stage.show();
     }
-    static void setRoot(String fxml) throws IOException {
+    public static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
     }
     private static Parent loadFXML(String fxml) throws IOException {
@@ -33,8 +34,14 @@ public class App extends Application {
     public static void main(String[] args) {
         launch();
     }
+    public static Parent getFXML() throws IOException{
+        return loadFXML("Inicio");
+    }
     //Metodo para cambiar el contenido de una escena
     public static void changeRoot(Parent rootNode){
         scene.setRoot(rootNode);
+    }
+    public static Scene getScene(){
+        return scene;
     }
 }

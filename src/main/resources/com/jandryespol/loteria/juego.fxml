@@ -86,8 +86,14 @@
                            </VBox.margin>
                         </Label>
                         <Rectangle fx:id="cartaJugando" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="358.0" stroke="BLACK" strokeType="INSIDE" width="265.0" />
-                        <Button mnemonicParsing="false" onAction="#loteria" prefHeight="66.0" prefWidth="181.0" text="LOTERIA">
-                           <VBox.margin>
+                        <fx:define>
+                            <Image fx:id="btnImage" url="@images/loteria.jpg" />
+                       </fx:define>
+                        <Button fx:id="btnLoteria" mnemonicParsing="false" onAction="#loteria" prefHeight="66.0" prefWidth="181.0" style="-fx-background-color: #FFFFFF;">
+                            <graphic>
+                                <ImageView image="$btnImage" />
+                           </graphic>
+                            <VBox.margin>
                               <Insets bottom="10.0" left="30.0" right="20.0" top="10.0" />
                            </VBox.margin>
                         </Button>

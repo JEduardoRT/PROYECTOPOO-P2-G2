@@ -4,6 +4,7 @@ modelo\EnumAlineacion.class
 com\jandryespol\loteria\App.class
 com\jandryespol\loteria\JuegoController.class
 modelo\Juego.class
+com\jandryespol\loteria\PerdisteController.class
 com\jandryespol\loteria\InicioController.class
 modelo\CartaJuego.class
 modelo\Jugador$1.class

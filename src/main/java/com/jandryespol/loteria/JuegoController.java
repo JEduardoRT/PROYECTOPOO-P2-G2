@@ -5,30 +5,22 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.Random;
-import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import modelo.*;
 public class JuegoController{
     Juego actualGame;
-    Contador c;
+    public static Contador c;
     @FXML 
     private ImageView comoGanar;
     @FXML
@@ -38,7 +30,7 @@ public class JuegoController{
     @FXML
     Rectangle cartaJugando;
     @FXML
-    public void initialize() throws FileNotFoundException{
+    public void initialize() throws FileNotFoundException, IOException{
         ArrayList<Juego> games = App.main.getJuegos();
         System.out.println(games);
         actualGame = games.get(games.size()-1);
@@ -59,27 +51,27 @@ public class JuegoController{
         if(actualGame.getConfiguracion().getVisibilidad()){
             if(actualGame.getJugadores().size()==2){
                 gp = new GridPane();
-                llenarGridPaneM(gp,players.get(1).getTablero().getCartas(),36,51,10);
+                llenarGridPaneM(gp,players.get(1).getTablero().getCartas(),36,51);
                 oponentes.getChildren().add(gp);
             }else{
                 gp = new GridPane();
-                llenarGridPaneM(gp,players.get(1).getTablero().getCartas(),36,51,10);
+                llenarGridPaneM(gp,players.get(1).getTablero().getCartas(),36,51);
                 oponentes.getChildren().add(gp);
                 gp = new GridPane();
-                llenarGridPaneM(gp,players.get(2).getTablero().getCartas(),36,51,10 );
+                llenarGridPaneM(gp,players.get(2).getTablero().getCartas(),36,51);
                 oponentes.getChildren().add(gp);
             }
         }else{
             if(actualGame.getJugadores().size()==2){
                 gp = new GridPane();
-                llenarGridPaneV(gp,36,51,10);
+                llenarGridPaneV(gp,36,51);
                 oponentes.getChildren().add(gp);
             }else{
                 gp = new GridPane();
-                llenarGridPaneV(gp,36,51,10);
+                llenarGridPaneV(gp,36,51);
                 oponentes.getChildren().add(gp);
                 gp = new GridPane();
-                llenarGridPaneV(gp,36,51,10 );
+                llenarGridPaneV(gp,36,51);
                 oponentes.getChildren().add(gp);
             }
         }
@@ -87,7 +79,7 @@ public class JuegoController{
         actualGame.setDaemon(true);
         actualGame.start();
     }
-    public void llenarGridPaneV(GridPane gp, int ancho, int largo, int radio) throws FileNotFoundException{
+    public void llenarGridPaneV(GridPane gp, int ancho, int largo) throws FileNotFoundException{
         FileInputStream input;
         Image imagen;
         int col;
@@ -104,7 +96,7 @@ public class JuegoController{
             gp.add(sp, col, fil);
         }
     }
-    public void llenarGridPaneM(GridPane gp, ArrayList<CartaJuego> cartas, int ancho, int largo, int radio) throws FileNotFoundException{
+    public void llenarGridPaneM(GridPane gp, ArrayList<CartaJuego> cartas, int ancho, int largo) throws FileNotFoundException{
         FileInputStream input;
         Image imagen;
         int col;
@@ -185,6 +177,10 @@ public class JuegoController{
             }
         }else
             System.out.println("Sigue jugando");
+    }
+    public static void getAlert(){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION, "Has perdido!");
+        alert.showAndWait();
     }
 }
 

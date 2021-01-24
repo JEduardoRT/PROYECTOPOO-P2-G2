@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jandryespol.loteria.PerdisteController">
+   <children>
+      <ImageView fitHeight="540.0" fitWidth="1058.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/fondo.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="336.0" layoutY="211.0" text="PERDISTE" textFill="RED">
+         <font>
+            <Font name="System Bold" size="82.0" />
+         </font>
+      </Label>
+      <Button layoutX="309.0" layoutY="416.0" mnemonicParsing="false" onAction="#volver" style="-fx-background-color: #FFFFFF;" text="VOLVER AL INICIO">
+         <font>
+            <Font name="System Bold" size="34.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

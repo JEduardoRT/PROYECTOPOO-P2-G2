@@ -11,7 +11,6 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jandryespol.loteria.ReporteController">
    <children>
       <ImageView fitHeight="540.0" fitWidth="960.0" pickOnBounds="true" preserveRatio="true">
@@ -29,7 +28,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Button id="btnSalir" fx:id="btnSalir" alignment="BOTTOM_LEFT" cacheShape="false" centerShape="false" contentDisplay="CENTER" mnemonicParsing="false" onAction="#regresarMenu" prefHeight="59.0" prefWidth="166.0" scaleShape="false" text="Regresar" textAlignment="CENTER" translateX="20.0" translateY="75.0" GridPane.rowIndex="2">
+            <Button id="btnSalir" fx:id="btnSalir" alignment="BOTTOM_LEFT" cacheShape="false" centerShape="false" contentDisplay="CENTER" mnemonicParsing="false" onAction="#regresarMenu" prefHeight="59.0" prefWidth="166.0" scaleShape="false" style="-fx-background-color: #FFFFFF;" text="Regresar" textAlignment="CENTER" translateX="20.0" translateY="75.0" GridPane.rowIndex="2">
                <font>
                   <Font size="31.0" />
                </font>
