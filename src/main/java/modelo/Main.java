@@ -1,7 +1,6 @@
 package modelo;
 
 import com.jandryespol.loteria.App;
-import com.jandryespol.loteria.JuegoController;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileInputStream;
@@ -12,7 +11,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import java.util.zip.CRC32;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 

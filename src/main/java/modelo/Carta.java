@@ -16,8 +16,4 @@ public class Carta implements Serializable{
     public String getRutaImagen(){
         return rutaImagen;
     }
-//    @Override
-//    public boolean equals(Object obj) {
-//        
-//    }
 }

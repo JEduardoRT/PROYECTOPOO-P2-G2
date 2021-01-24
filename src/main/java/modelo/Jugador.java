@@ -2,11 +2,6 @@ package modelo;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import javafx.scene.image.Image;
-import javafx.scene.layout.StackPane;
-import javafx.scene.paint.ImagePattern;
-import javafx.scene.paint.Paint;
-import javafx.scene.shape.Rectangle;
 
 public class Jugador implements Serializable{
     private String nombre;
