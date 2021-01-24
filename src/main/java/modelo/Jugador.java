@@ -8,7 +8,7 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 
-public class Jugador implements Serializable{
+public class Jugador extends Thread implements Serializable{
     private String nombre;
     private Tablero tablero;
     public Jugador(String n, Tablero t){
@@ -68,4 +68,15 @@ public class Jugador implements Serializable{
                 return false;
         }
     }
+    
+   /* @Override
+    public void run(){
+    
+    }
+    public void comprobarCarta(Carta carta){
+        for(CartaJuego cj : tablero.getCartas()){
+            if(cj.getCarta().equals(carta))
+                cj.marcarCarta();
+        }
+    }*/
 }

@@ -13,6 +13,7 @@ import java.util.Random;
 import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 
 public class Juego extends Thread implements Serializable{
@@ -26,6 +27,8 @@ public class Juego extends Thread implements Serializable{
     private Alineacion alineacion;
     private EnumAlineacion numAlineacion;
     private transient Rectangle view;
+    private transient StackPane sp;
+    private transient Circle cir;
     private static final List<EnumAlineacion> VALUES = Collections.unmodifiableList(Arrays.asList(EnumAlineacion.values()));
     
     public Juego(ArrayList<Jugador> jugadores, Configuracion conf){
@@ -93,6 +96,13 @@ public class Juego extends Thread implements Serializable{
                 Image img = new Image(input);
                 view.setFill(new ImagePattern(img)); 
                 cartasJugadas.add(carta);
+                for(int i = 1; i < jugadores.size(); i++){
+                    for(CartaJuego c : jugadores.get(i).getTablero().getCartas()){
+                        if(c.getCarta().equals(carta))
+                            c.marcarCarta();
+                            //Codigo para poner frejol
+                    }
+                }
                 this.sleep(3000);
             }
         }catch(FileNotFoundException | InterruptedException err){

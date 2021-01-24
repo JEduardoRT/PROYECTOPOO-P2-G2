@@ -1,11 +1,14 @@
 modelo\Tablero.class
+modelo\Contador.class
 modelo\EnumAlineacion.class
 com\jandryespol\loteria\App.class
 com\jandryespol\loteria\JuegoController.class
 modelo\Juego.class
 com\jandryespol\loteria\InicioController.class
 modelo\CartaJuego.class
+modelo\Jugador$1.class
 modelo\Jugador.class
+modelo\MalaCarta.class
 modelo\Alineacion.class
 com\jandryespol\loteria\ConfiguracionController.class
 com\jandryespol\loteria\NombreController.class

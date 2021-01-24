@@ -10,9 +10,10 @@ public class Tablero implements Serializable{
     }
     public void llenarTablero(ArrayList<Carta> array){
         if(array.size()>=16){
-            Collections.shuffle(array);
+            ArrayList<Carta> mazo = new ArrayList(array);
+            Collections.shuffle(mazo);
             for(int i=0;i<16;i++)
-                cartas.add(new CartaJuego(array.get(i)));
+                cartas.add(new CartaJuego(mazo.get(i)));
         }
     }
     public ArrayList<CartaJuego> getCartas(){
