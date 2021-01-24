@@ -71,8 +71,8 @@ public class Juego extends Thread implements Serializable{
         duracion++;
     }
     public void perdiste(int i){
-        this.setGanador(this.getJugadores().get(i)); //Actualiza ganador
-        this.setDuracion(JuegoController.c.getJuego().getDuracion()); //Actualiza duracion del juego
+        ganador = this.getJugadores().get(i); //Actualiza ganador
+        duracion = JuegoController.c.getJuego().getDuracion(); //Actualiza duracion del juego
         JuegoController.c.setJuego(this); //Termina el contador
         FileOutputStream fout;  
             try {
@@ -81,6 +81,7 @@ public class Juego extends Thread implements Serializable{
                 out.writeObject(this);  
                 out.flush();
                 App.setRoot("perdiste");
+                this.stop();
             } catch (FileNotFoundException ex) {
                 ex.printStackTrace();
             } catch (IOException ex) {
