@@ -25,7 +25,6 @@ public class Contador extends Thread{
             try {
                 this.sleep(1000);
                 juego.masUnSegundo();
-                System.out.println(juego.getDuracion());
             } catch (InterruptedException ex) {
                 ex.printStackTrace();
             }

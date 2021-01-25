@@ -21,7 +21,6 @@ public class MalaCarta extends Thread{
         try {
             Paint carta = rect.getFill();
             rect.setFill(new ImagePattern(image));
-            System.out.println("x");
             this.sleep(500);
             rect.setFill(carta);
         } catch (InterruptedException ex) {
