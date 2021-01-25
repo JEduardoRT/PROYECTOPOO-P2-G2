@@ -46,6 +46,7 @@ public class JuegoController{
                 out.writeObject(actualGame);  
                 out.flush();
                 App.setRoot("perdiste");
+                this.stop();
             } catch (FileNotFoundException ex) {
                 ex.printStackTrace();
             } catch (IOException ex) {
@@ -143,7 +144,7 @@ public class JuegoController{
         for(int i=0;i<players.size();i++){
             players.get(i).getTablero().llenarTablero(actualGame.getMazo().getCartas());
         }
-        llenarGridPaneP(gridPlayer,players.get(0).getTablero().getCartas(),76,107,15);
+        llenarGridPaneP(gridPlayer,players.get(0).getTablero().getCartas(),76,107,20);
         GridPane gp;
         if(actualGame.getConfiguracion().getVisibilidad()){
             if(actualGame.getJugadores().size()==2){
