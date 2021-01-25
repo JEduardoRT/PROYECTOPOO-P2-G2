@@ -17,7 +17,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
-import com.jandryespol.loteria.modelo.*;
+import modelo.*;
 public class JuegoController{
     static ImagePattern frejolImg;
     static ImagePattern matchImg;
@@ -193,7 +193,7 @@ public class JuegoController{
             String vacioPath = App.class.getResource(App.imagesPath+"vacio.png").getPath();  
             vacioInput = new FileInputStream(vacioPath);
             vacio = new Image(vacioInput);
-            Rectangle rect2 = new Rectangle(ancho,largo,new ImagePattern(vacio));
+            Rectangle rect2 = new Rectangle(ancho,ancho,new ImagePattern(vacio));
             col = i%4;
             fil = i/4;
             sp.getChildren().add(rect);

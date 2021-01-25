@@ -42,13 +42,12 @@ public class ConfiguracionController{
         try (BufferedReader br = new BufferedReader(new FileReader(App.confPath))){
             String line;
             while ((line = br.readLine()) != null) {
-                if(!line.equals("1") || !line.equals("2")){
+                if(!line.equals("1") || !line.equals("2"))
                     btnVisibilidad.setText(line);
                     if(line.equals("Visible"))
                         btnVisibilidad.setStyle("-fx-background-color:#00DB06");
                     else
                         btnVisibilidad.setStyle("-fx-background-color:#F00000");
-                }
             }
         } catch (IOException ex) {
             System.out.println("IOException:" + ex.getMessage());
