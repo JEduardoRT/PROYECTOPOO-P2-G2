@@ -1,14 +1,12 @@
-    package com.jandryespol.loteria;
+package com.jandryespol.loteria;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.IOException;
-import javafx.scene.control.Alert;
-import modelo.Main;
+import com.jandryespol.loteria.modelo.Main;
 
 public class App extends Application {
     public static String imagesPath="images/";

@@ -1,0 +1,1 @@
+java --module-path "C:\Program Files\AdoptOpenSDK\javafx-sdk-11.0.2\lib" --add-modules javafx.base,javafx.controls,javafx.fxml -jar Loteria-1.0-SNAPSHOT-jar-with-dependencies.jar
