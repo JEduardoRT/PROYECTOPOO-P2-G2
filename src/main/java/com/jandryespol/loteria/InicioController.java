@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import modelo.Carta;
+import com.jandryespol.loteria.modelo.Carta;
 
 public class InicioController {
     ArrayList<Carta> mazo;
