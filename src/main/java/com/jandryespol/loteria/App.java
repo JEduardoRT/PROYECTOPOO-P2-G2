@@ -22,7 +22,7 @@ public class App extends Application {
         main = new Main();
         scene = new Scene(loadFXML("Inicio"), 960, 540);
         stage.setTitle("LOTERIA");
-        stage.getIcons().add(new Image(new FileInputStream(App.class.getResource(imagesPath+"icon.png").getPath())));
+        stage.getIcons().add(new Image(new FileInputStream(App.class.getResource(App.imagesPath+"icon.png").getPath())));
         stage.setScene(scene);
         stage.show();
     }
@@ -35,9 +35,6 @@ public class App extends Application {
     }
     public static void main(String[] args) {
         launch();
-    }
-    public static Parent getFXML() throws IOException{
-        return loadFXML("Inicio");
     }
     //Metodo para cambiar el contenido de una escena
     public static void changeRoot(Parent rootNode){

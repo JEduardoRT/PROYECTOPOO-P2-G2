@@ -17,7 +17,7 @@ public class NombreController {
     private TextField field;
      @FXML
     public void regresarMenu() throws IOException{
-        App.setRoot("inicio");
+        App.setRoot("Inicio");
     }
      @FXML
     public void ok() throws IOException, InterruptedException{
