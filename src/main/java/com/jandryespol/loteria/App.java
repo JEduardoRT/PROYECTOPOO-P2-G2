@@ -6,7 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
-import com.jandryespol.loteria.modelo.Main;
+import com.jandryespol.modelo.Main;
 
 public class App extends Application {
     public static String imagesPath="images/";

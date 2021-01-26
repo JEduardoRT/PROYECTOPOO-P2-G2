@@ -17,7 +17,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
-import com.jandryespol.loteria.modelo.*;
+import com.jandryespol.modelo.*;
 public class JuegoController{
     static ImagePattern frejolImg;
     static ImagePattern matchImg;

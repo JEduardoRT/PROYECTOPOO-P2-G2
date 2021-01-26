@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
-import com.jandryespol.loteria.modelo.*;
+import com.jandryespol.modelo.*;
 
 public class NombreController {
     
